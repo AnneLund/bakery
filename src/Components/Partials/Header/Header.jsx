@@ -16,7 +16,6 @@ const Hamburger = styled.div`
     margin-bottom: 4px;
     border-radius: 5px;
    
-
     @media screen and (max-width: 768px){
       display: flex;
     }
@@ -35,6 +34,22 @@ h2 {
   font-size: 2.5em;
   margin: 0 2em;
   color: white;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+  padding: .4rem 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in;
+  font-size: 1em;
+  color: white; 
+
+  &:hover{
+    background-color: #60606083;
+    transition: 500ms;
+  }
 }
 
 
@@ -101,7 +116,6 @@ const Header = () => {
         <MenuLink to="/contact">Kontakt</MenuLink>
       </li>
       {loggedIn ? 
-      
       <>
       
       <button onClick={() => {

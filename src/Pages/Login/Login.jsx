@@ -4,6 +4,7 @@ import { useLoginStore } from "./useLoginStore";
 import useFlashMessageStore from '../../Components/FlashMessages/useFlashMessageStore'
 import styled from "styled-components";
 import Transitions from "../../Styles/Transition";
+import { Navigate } from "react-router-dom";
 
 export const Form_Styled = styled.form`
   display: flex;
@@ -54,6 +55,7 @@ const Login = () => {
           setFlashMessage("Velkommen");
           data.user.user_id = data.user_id
           setLoggedIn(true, data.user, data.username, data.access_token);
+          Navigate('/productsbycategory')
         } else {
           setFlashMessage("Ingen brugere med disse kriterier");
         }

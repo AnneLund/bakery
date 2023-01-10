@@ -8,21 +8,6 @@ margin: auto;
 display: flex;
 justify-content: center;
 
-    header {
-        width: 50%;
-        margin:auto;
-        color: black; 
-
-        h2 {
-            margin: 2em 1em;
-        }
-
-    h4{
-        font-size: 1em;
-        padding: 0 1em;
-        font-weight: 100;
-    }
-    }
 
 .figures{
     display: flex;
@@ -85,9 +70,7 @@ flex-direction: column;
 min-height: 60vh;
 justify-content: flex-start;
 
-header {
-    width: 100%;
-}
+
 }
 `
 

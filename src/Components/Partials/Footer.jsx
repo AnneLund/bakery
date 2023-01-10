@@ -6,8 +6,8 @@ background-color: #3e3e3e;
 color: white;
 h2 {
   font-size: 2vw;
- margin-bottom: 0;
-  padding: .5em;
+  margin-bottom: 0;
+  padding: .3em;
 }
 p{
   font-weight: 100;
@@ -25,6 +25,16 @@ padding: .5em;
 .copyright {
   margin: 1em auto;
 }
+}
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 6vw;
+  }
+  p {
+    font-size: 2vw;
+    width: 90%;
+  }
 }
 `
 

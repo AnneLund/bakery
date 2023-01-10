@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Section_Styled from './Layout/Section_Styled'
 import AppService from './Appservices/Appservice'
+import { Header } from '../Styles/HeaderStyle'
 
 const BakedGoods = () => {
 const [goods, setGoods] = useState([])
@@ -24,10 +25,10 @@ useEffect(() => {
   return (
     <Section_Styled>
         <article>
-        <header>
+        <Header>
             <h2> Nyeste bagværk</h2>
             <h4>Iste sint consequatur ipsa, impedit iure nisi fugit veritatis facilis ullam! Reprehenderit quos ipsum blanditiis deleniti error vero rerum, consequatur cupiditate aut?</h4>
-        </header>
+        </Header>
         <div className='figures'>
     {goods?.map((item, i) => (
        <figure key={i}>

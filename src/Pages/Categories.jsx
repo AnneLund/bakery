@@ -3,6 +3,8 @@ import useGetListItemsByEndPoint from '../Components/Hooks/useGetListItemsByEndP
 import Section_Styled from '../Components/Layout/Section_Styled';
 import { Outlet, Link} from 'react-router-dom'
 import styled from 'styled-components'
+import { Header } from '../Styles/HeaderStyle';
+import Transitions from '../Styles/Transition';
 
 const Sidebar = styled.nav`
 text-align: right;
@@ -35,12 +37,13 @@ const Products = () => {
 const {state: categories} = useGetListItemsByEndPoint('categories', "items");
 
   return (
+    <Transitions>
 <Section_Styled>
   <article>
-  <header>
+  <Header>
       <h2> Vores elskede bagværk</h2>
       <h4>Iste sint consequatur ipsa, impedit iure nisi fugit veritatis facilis ullam! Reprehenderit quos ipsum blanditiis deleniti error vero rerum, consequatur cupiditate aut?</h4>
-  </header>
+  </Header>
 
         <Sidebar>
           <ul>
@@ -56,6 +59,7 @@ const {state: categories} = useGetListItemsByEndPoint('categories', "items");
 <Outlet/>
 </article>
 </Section_Styled>
+</Transitions>
   )
 }
 

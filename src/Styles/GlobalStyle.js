@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
   }
 }
 
+#map {
+    height: 100%;
+  }
+
 a:active {
           font-weight: bold;
         }

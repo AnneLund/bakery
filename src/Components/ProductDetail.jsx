@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import AppService from './Appservices/Appservice';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import {FcLike} from 'react-icons/fc'
-import Comments from './Comments/Comments';
 import Post from '../Pages/Post';
+import {AiOutlineComment} from 'react-icons/ai'
+import { useLoginStore } from "../Pages/Login/useLoginStore";
+import Transitions from '../Styles/Transition';
 
 const Product_Page = styled.section`
 position: relative;
@@ -35,10 +37,17 @@ button {
         padding: 0 .5em;
     }
 }
+
+@media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 1em auto;
+    padding: 0; 
+}
 `
 
 const Product = styled.figure`
 width: 50%;
+padding: 0 1em;
 
 figcaption {
     line-height: 2.5em;
@@ -54,7 +63,7 @@ img {
 ul {
 position: absolute;
 right: 0;
-top: 10vh;
+top: 15vh;
 
 li {
     list-style: none;
@@ -67,12 +76,55 @@ h3 {
     text-align: left;
     margin-bottom: 1em;
 }
+
 }
+@media screen and (max-width: 768px) {
+    width: 100%;
+    ul {
+       position: static;
+    margin: 1em auto;    
+    } 
+}
+`
+
+const Comments = styled.article`
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    
+    header{
+        border: grey 1px solid;
+        padding: 1em;
+        color: black;
+        margin-bottom: 1em;
+    }
+
+    p {
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 768px) {
+        header {
+        display: flex;
+        flex-direction: column;  
+        justify-content: center;
+        align-items: center;
+
+        h4 {
+            margin: 1em 0;
+        }
+        p {
+            text-align: center;
+        }
+        }
+       
+    }
 `
 
 const ProductDetail = () => {
 const {id} = useParams()
 const [product, setProduct] = useState("")
+const { loggedIn} = useLoginStore();
 
 useEffect(() => {
     const fetchProduct = async () => {
@@ -90,9 +142,8 @@ useEffect(() => {
     fetchProduct()
 }, [])
 
-console.log(product)
-
   return (
+    <Transitions>
     <Product_Page>
 {product ? 
 
@@ -119,9 +170,18 @@ console.log(product)
 </>
 : null}
 
+<Comments>
+        <header>
+           <h4>Kommentarer</h4>  
+
+   {loggedIn ?         
+   <span> {product.num_comments} <AiOutlineComment/></span> : 
+   <p><Link to="/login">Log ind</Link> for at se og skrive kommentarer til produktet..</p> }     
+        </header>
 <Post/>
+</Comments>
     </Product_Page>
-  
+    </Transitions>
   )
 }
 
