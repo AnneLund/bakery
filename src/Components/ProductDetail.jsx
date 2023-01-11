@@ -42,11 +42,21 @@ button {
     width: 100%;
     margin: 1em auto;
     padding: 0; 
+
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1{
+    padding: 1em;
+    text-align: center;
+    }
 }
 `
 
 const Product = styled.figure`
-width: 50%;
+width: 70%;
 padding: 0 1em;
 
 figcaption {
@@ -69,7 +79,7 @@ li {
     list-style: none;
     border: #8080809c 1px solid;
     margin: .2em;
-    padding: .5em 1.5em;
+    padding: 1em 2em;
 }
 
 h3 {
@@ -80,9 +90,17 @@ h3 {
 }
 @media screen and (max-width: 768px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
     ul {
-       position: static;
-    margin: 1em auto;    
+    position: static;
+    margin: 1em auto 0;    
     } 
 }
 `
@@ -104,6 +122,7 @@ const Comments = styled.article`
     }
 
     @media screen and (max-width: 768px) {
+        margin: 0;
         header {
         display: flex;
         flex-direction: column;  
@@ -111,7 +130,7 @@ const Comments = styled.article`
         align-items: center;
 
         h4 {
-            margin: 1em 0;
+            margin: 0;
         }
         p {
             text-align: center;

@@ -89,10 +89,9 @@ const Post = () => {
         {loggedIn ? (
             <>
     <Form_Styled onSubmit={handleSubmit(onSubmit)}> 
-{/* <Products productID = {productID} setProductID = {setProductID}/> */}
-<input type='text' style={{'display': 'none'}} {...register('product_id')} value={productID}/>
 
-<input type='text' style={{'display': 'none'}} {...register('user_id')} value={userInfo.user_id}/>
+<input type="hidden" {...register('product_id')} value={productID}/>
+<input type="hidden" {...register('user_id')} value={userInfo.user_id}/>
 
 {errors.title?.type === "required" && <p role='alert'>Titlen er påkrævet</p>}
 <input type='text' style={{'display': 'none'}} {...register('title')} placeholder="Dit navn"/>

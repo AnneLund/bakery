@@ -5,14 +5,15 @@ import { Outlet, Link} from 'react-router-dom'
 import styled from 'styled-components'
 import { Header } from '../Styles/HeaderStyle';
 import Transitions from '../Styles/Transition';
+import Breadcrumbs from '../BreadCrumbs/Breadcrumbs';
 
 const Sidebar = styled.nav`
 text-align: right;
 width: 15%;
 padding: 2em;
+position: absolute;
 ul {
     line-height: 1.8em;
-    position: absolute;
 li {
     list-style: none;
     a {
@@ -27,6 +28,7 @@ li {
   margin: auto;
   text-align: center;
   width: 100%;
+  position: relative;
   ul {
  position: relative;   
   }
@@ -40,13 +42,15 @@ const {state: categories} = useGetListItemsByEndPoint('categories', "items");
     <Transitions>
 <Section_Styled>
   <article>
+ 
   <Header>
       <h2> Vores elskede bagværk</h2>
       <h4>Iste sint consequatur ipsa, impedit iure nisi fugit veritatis facilis ullam! Reprehenderit quos ipsum blanditiis deleniti error vero rerum, consequatur cupiditate aut?</h4>
   </Header>
-
+ 
+    <Breadcrumbs/> 
         <Sidebar>
-          <ul>
+         <ul>
         {categories?.map(cat => {
           return(
             <li>

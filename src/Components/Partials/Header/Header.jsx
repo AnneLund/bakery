@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {MainNav} from './MainNav.styled'
 import {useState, useEffect} from 'react'
 import styled from "styled-components";
@@ -58,7 +58,8 @@ button {
   transition: max-height 0.3 ease-in;
   width: 100%;
   z-index: 50000;
-  max-height: ${({isOpen}) => isOpen ? 'auto' : '0'};
+  max-height: ${({isOpen}) => isOpen ? 'auto' : '0'}; 
+
 }
 `
 const MenuLink = styled(Link)`
@@ -85,6 +86,17 @@ const Header = () => {
   const {isOpen, setIsOpen} = useIsOpenNavStore()
   const [shrinkHeader, setShrinkHeader] = useState(false);
   const { setLoggedIn, loggedIn} = useLoginStore();
+  const navigate = useNavigate()
+  const [showBackground, setShowBackground] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setShowBackground(false);
+    } else {
+      setShowBackground(true);
+    }
+  }, [location]);
 
   useEffect(() => {
     const handler = () => {
@@ -98,7 +110,7 @@ const Header = () => {
 
   
   return (
-    <MainNav shrinkHeader={shrinkHeader}>
+    <MainNav showBackground={showBackground} shrinkHeader={shrinkHeader}>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
        <span></span>
        <span></span>
@@ -116,14 +128,13 @@ const Header = () => {
         <MenuLink to="/contact">Kontakt</MenuLink>
       </li>
       {loggedIn ? 
-      <>
-      
-      <button onClick={() => {
+    
+      <li onClick={() => {
         setLoggedIn(false, "", "", "")
-        Navigate('/login')
-      }}>Log ud</button> 
-      </>
-
+        navigate('/login')
+      }}>
+      <MenuLink>Log ud</MenuLink>
+      </li>   
         : 
         <li> <MenuLink to="/login">Log ind</MenuLink> </li>}
       </Menu>

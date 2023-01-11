@@ -3,11 +3,11 @@ import styled from "styled-components";
 const Section_Styled = styled.section`
 position: relative;
 width: 80%;
-min-height: 50vh;
+min-height: 80vh;
 margin: auto;
 display: flex;
 justify-content: center;
-
+align-items: center;
 
 .figures{
     display: flex;
@@ -21,7 +21,10 @@ justify-content: center;
 @media screen and (max-width: 768px) {
 display: flex;
 flex-direction: column;
+padding: 0;
+margin: 0;
 gap: 2em;
+justify-content: center;
 }   
 
 }
@@ -62,14 +65,16 @@ gap: 2em;
             background-color: inherit;
             border: 1px black solid;
         }
+
+        @media screen and (max-width: 768px) {
+            width: auto;
+        }
     }
 
 @media screen and (max-width: 768px) {
 display: flex;
 flex-direction: column;
-min-height: 60vh;
-justify-content: flex-start;
-
+min-height: 70vh;
 
 }
 `

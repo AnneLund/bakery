@@ -4,12 +4,12 @@ import { useLoginStore } from "./useLoginStore";
 import useFlashMessageStore from '../../Components/FlashMessages/useFlashMessageStore'
 import styled from "styled-components";
 import Transitions from "../../Styles/Transition";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Section_Styled from "../../Components/Layout/Section_Styled";
 
 export const Form_Styled = styled.form`
   display: flex;
   flex-direction: column;
-  width: 25%;
   margin: 2em auto;
   gap: .5em;
   input, button, textarea {
@@ -21,6 +21,7 @@ export const Form_Styled = styled.form`
 const Login = () => {
   const { setLoggedIn, loggedIn } = useLoginStore();
   const { setFlashMessage } = useFlashMessageStore();
+  const navigate = useNavigate()
 
   const [user, setUser] = useState({
     username: "",
@@ -34,6 +35,8 @@ const Login = () => {
       [evt.target.name]: value,
     });
   };
+
+
 
   const LogMeIn = (e) => {
     e.preventDefault();
@@ -55,7 +58,7 @@ const Login = () => {
           setFlashMessage("Velkommen");
           data.user.user_id = data.user_id
           setLoggedIn(true, data.user, data.username, data.access_token);
-          Navigate('/productsbycategory')
+          navigate('/')
         } else {
           setFlashMessage("Ingen brugere med disse kriterier");
         }
@@ -67,13 +70,18 @@ const Login = () => {
 
   return !loggedIn ? (
     <Transitions>
-    <Page title="Login">
+    <Section_Styled>
+<article>
+       <h2>Log ind</h2>
+    
     <Form_Styled onSubmit={LogMeIn}>
       <input type="text" name="username" onChange={(e) => handleChange(e)} />
       <input type="password" name="password" onChange={(e) => handleChange(e)} />
       <button>Log ind</button>
-    </Form_Styled>
-    </Page>
+    </Form_Styled>  
+</article>
+
+    </Section_Styled>
     </Transitions>
   ) : 
    

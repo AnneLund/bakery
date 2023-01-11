@@ -7,6 +7,7 @@ import Categories from '../../Pages/Categories'
 import ProductsByCategory from '../ProductsByCategory'
 import ProductDetail from '../ProductDetail'
 import Contact from '../../Pages/Contact/Contact'
+import Loginpage from '../../Pages/Login/Loginpage'
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
     <Route path='/products/:id' element={<ProductDetail/>}/>
    
     <Route path='/login' element={<Login/>}/>
+    <Route path='/welcome' element={<Loginpage/>}/>
    </Routes>
   )
 }

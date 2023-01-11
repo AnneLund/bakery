@@ -4,9 +4,10 @@ export const Header = styled.header`
         width: 50%;
         margin:auto;
         color: black; 
+        padding: 5em 0;
 
         h2 {
-            margin: 1.5em 1em;
+            margin: 1em auto;
             font-size: 2.5em;
         }
 
@@ -18,5 +19,9 @@ export const Header = styled.header`
 
     @media screen and (max-width: 768px) {
     width: 100%;
+
+    h2 {
+        padding: 0;
+    }
     }
     `

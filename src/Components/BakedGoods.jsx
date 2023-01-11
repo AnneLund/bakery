@@ -12,6 +12,7 @@ useEffect(() => {
         try {
             const response = await AppService.GetList("products")
                 if (response.data) {
+                    console.log(response.data)
                 setGoods(response.data.items.slice(0, 8))
                 }
         } catch (error) {

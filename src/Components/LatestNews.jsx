@@ -13,7 +13,7 @@ const LatestNews = () => {
             try {
                 const response = await AppService.GetList("news")
                     if (response.data) {
-                      
+                
                     setNews(response.data.items.slice(0, 3))
                     }
             } catch (error) {

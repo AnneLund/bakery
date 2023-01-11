@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AppService from './Appservices/Appservice'
-import {Link, useParams } from 'react-router-dom'
+import {Link, Route, Routes, useParams } from 'react-router-dom'
 import {AiOutlineComment} from 'react-icons/ai'
 import styled from 'styled-components'
 
@@ -100,7 +100,10 @@ const ProductsByCategory = () => {
      
     )
 })}
+
     </Products>
+
+    
  
   )
 }

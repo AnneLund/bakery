@@ -26,6 +26,13 @@ export const UserComment = styled.figure`
     color: black;
     text-align: left;
     margin-bottom: 1em;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
 figcaption {
     padding: 0 1em;
 h4{
@@ -43,7 +50,8 @@ h4{
 }
    
     button {
-        width: 50%;
+        width: 10%;
+        background-color: #ff00005f;
     }
 
     img {
@@ -84,7 +92,8 @@ const Comments = ({postID, productID}) => {
            
             return(
                 <UserComment key={item.id}>
-                <img src={profile} alt={item.user.firstname}/>    
+                <img src={profile} alt={item.user.firstname}/> 
+                <div> 
                 <figcaption key={item.id}>
                 <h4>{item.user.firstname}</h4>
                 <p className='created'>{date.toDateString()}</p>
@@ -92,18 +101,14 @@ const Comments = ({postID, productID}) => {
                 
                 </figcaption>
                 {item.user_id.includes(userInfo.user_id) ?  
-            <> 
+           
               <button value={item.id} onClick={() => {
                     AppService.Delete("comments", item.id)
                     setDeleted(() => !deleted)
                 }}>Slet</button> 
-                
-                {/* <button value={item.id} onClick={() => {
-                    AppService.Update("comments", item.id)
-                    setDeleted(() => true)
-                }}>Opdatér</button>  */}
-            </> 
+             
                 : null}     
+                </div>  
                 </UserComment>
             )
         } )}

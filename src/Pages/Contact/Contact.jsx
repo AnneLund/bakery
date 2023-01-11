@@ -4,6 +4,7 @@ import useFlashMessageStore from "../../Components/FlashMessages/useFlashMessage
 import Transitions from '../../Styles/Transition'
 import { Form_Styled } from '../Login/Login'
 import { Header } from '../../Styles/HeaderStyle';
+import { useModalStore } from "../../Components/Modal/useModalStore";
 
 const Contact_Page = styled.section`
 article {
@@ -67,11 +68,33 @@ form {
 `
 
 const Contact = () => {
-  const { setFlashMessage } = useFlashMessageStore();
+  const { setModalPayload, setToggleModal } = useModalStore();
+
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleChange = (evt) => {
+    const value = evt.target.value;
+    setUser({
+      ...user,
+      [evt.target.name]: value,
+    });
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setFlashMessage("Tak for din besked! Vi vender hurtigst muligt tilbage.");
+    setModalPayload(
+    <div>
+      <h4>Tak for din besked:</h4>
+      <p>{user.message}</p>
+      <h5>Vi vender hurtigst muligt tilbage!</h5>
+      <button onClick={() => setToggleModal("none")}>Ok</button>
+    </div>
+    );
+    console.log(user)
     e.target.reset();
   };
 
@@ -83,16 +106,12 @@ const Contact = () => {
       <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem odit tenetur provident harum at corrupti minus? Maiores pariatur tempore autem!</h4>  
       </Header>
  <article> 
+
   <form onSubmit={sendEmail}>
-
-<input type="text" placeholder='Dit navn:' id="first" name="user_name" required />
-
-<input type="email" placeholder='Din email:' id="email" name="user_email" required />
-
-<textarea rows={10} name="message" placeholder='Din besked:' required/>
-
+<input type="text" placeholder='Dit navn:' onChange={(e) => handleChange(e)} name="name" required />
+<input type="email" placeholder='Din email:' onChange={(e) => handleChange(e)} name="email" required />
+<textarea rows={10} name="message" onChange={(e) => handleChange(e)} placeholder='Din besked:' required/>
 <button type="submit" id="submit" name="submit"value="Send">Send</button>
-
 </form>
 
 <div className="mapouter">
