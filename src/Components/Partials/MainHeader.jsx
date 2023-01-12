@@ -9,21 +9,25 @@ import img3 from '../../Assets/Images/slide3.jpg'
 
 const MyMainHeader = styled.header`
   color: white;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   overflow: hidden;
 
-  h1 {
+  .h_container {
     position: absolute;
-    font-size: 6vw;
+    z-index: 5; 
     width: 100%;
-    margin: 0 auto;
-    top: 40%;
-    z-index: 2;
+    display: flex;
+  
+  h1 {
+    font-size: 6em;
+    width: 100%;
   }
- 
+  }
+
   img {
     width: 100%;
   }
@@ -38,8 +42,6 @@ const MyMainHeader = styled.header`
    
   }   
   }
-
-
 
   @media screen and (max-width: 768px) {
     h1 {
@@ -58,7 +60,9 @@ const MainHeader = () => {
   
   return (
     <MyMainHeader>
-      <h1>Vi elsker at lave brød</h1>
+    <div className='h_container'>
+      <h1>Vi elsker at lave brød</h1>  
+    </div>
         <div className="slide-container">
         <Slide>
          {images.map((slideImage, index)=> (
