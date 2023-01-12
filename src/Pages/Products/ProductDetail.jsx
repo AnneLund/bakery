@@ -69,6 +69,17 @@ h3 {
     header {
         display: flex;
         flex-direction: column;
+        margin: 5em auto 0;
+
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+        
+        button {
+            margin: .5em auto;
+            width: 50%;
+        }
     }
 
     h1{
@@ -76,9 +87,19 @@ h3 {
     text-align: center;
     }
 
+div {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    margin: 0;
+    padding: 0;
+  }
+    }
+
     ul {
-    position: static;
-    margin: 1em auto 0;    
+    margin: 1em auto 0; 
+    width: 80% ;
     } 
 }
 `
@@ -101,17 +122,17 @@ img {
     float: left;
 }
 
-
 @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 80%;
+    margin: 1em auto;
     display: flex;
     flex-direction: column;
+    padding: 0;
 
     img {
         width: 100%;
-        margin-bottom: 1em;
-    }
-
+        margin: 0;
+    } 
 }
 `
 
@@ -133,12 +154,12 @@ const Comments = styled.article`
     }
 
     @media screen and (max-width: 768px) {
-        margin: 0;
+        margin: 0 auto;
         header {
         display: flex;
         flex-direction: column;  
         justify-content: center;
-        align-items: center;
+     
 
         h4 {
             margin: 0;
@@ -195,8 +216,7 @@ useEffect(() => {
 </div>
 </>
 : null}
-
-    </Product_Page>
+</Product_Page>
 
 <Comments>
         <header>

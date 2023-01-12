@@ -44,9 +44,12 @@ const MyMainHeader = styled.header`
   }
 
   @media screen and (max-width: 768px) {
-    h1 {
+    .h_container {
+      h1 {
       font-size: 7vw;
+    }  
     }
+  
   }
 `
 

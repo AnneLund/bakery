@@ -30,6 +30,7 @@ article {
 
 @media screen and (max-width: 768px) {
   margin: 0 auto; 
+  padding: 4em 0 0;
   min-height: auto;
   article {
     header {

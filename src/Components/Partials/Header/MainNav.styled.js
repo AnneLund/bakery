@@ -38,8 +38,5 @@ li{
         width: 100%;
         background-color: ${(props) => (!props.isOpen ? '#15568495' : null)};
     }
-
-
-    
 }
 `
