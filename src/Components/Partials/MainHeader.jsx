@@ -19,7 +19,7 @@ const MyMainHeader = styled.header`
     position: absolute;
     font-size: 6vw;
     width: 100%;
-    margin: auto;
+    margin: 0 auto;
     top: 40%;
     z-index: 2;
   }
@@ -27,6 +27,19 @@ const MyMainHeader = styled.header`
   img {
     width: 100%;
   }
+
+  .react-slideshow-container {
+   button {
+    background-color: inherit;
+    margin: 1em;
+    svg {
+     fill: #ffffff6c;  
+    }
+   
+  }   
+  }
+
+
 
   @media screen and (max-width: 768px) {
     h1 {
@@ -51,6 +64,7 @@ const MainHeader = () => {
          {images.map((slideImage, index)=> (
             <div className="each-slide" key={index}>
                 <img src={slideImage}/>
+              
             </div>
           ))} 
         </Slide>

@@ -21,13 +21,15 @@ export const Header = styled.header`
 
     @media screen and (max-width: 768px) {
     width: 100%;
-    padding: 0;
 
     h2 {
+        margin: .5em 0;
         padding: 0;
+        font-size: 8vw;
     }
 
     h4 {
+        margin: .5em 0;
         width: 100%;
     }
     }
