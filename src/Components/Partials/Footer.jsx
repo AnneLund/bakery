@@ -5,7 +5,7 @@ const Footer_Styled = styled.footer`
 background-color: #3e3e3e;
 color: white;
 h2 {
-  font-size: 2vw;
+  font-size: 3.5vw;
   margin-bottom: 0;
   padding: .3em;
 }
@@ -29,7 +29,7 @@ padding: .5em;
 
 @media screen and (max-width: 768px) {
   h2 {
-    font-size: 6vw;
+    font-size: 8vw;
   }
   p {
     font-size: 2vw;

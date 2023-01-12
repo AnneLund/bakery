@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
-import newsletterbg from '../Assets/Images/newsletterbg.jpg'
+import newsletterbg from '../../Assets/Images/newsletterbg.jpg'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
-import AppService from './Appservices/Appservice'
+import AppService from '../Appservices/Appservice'
 import {AiOutlineMail} from 'react-icons/ai'
-import useFlashMessageStore from './FlashMessages/useFlashMessageStore'
+import useFlashMessageStore from '../FlashMessages/useFlashMessageStore'
 
 const Subscribe = styled.section`
     background-image: url(${newsletterbg});
     color: white;
     padding: 5em 0;
-    margin: 3em 0;
+    margin: 0;
     text-align: left;
     display: flex;
     flex-direction: column;

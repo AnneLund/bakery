@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Transitions from '../Styles/Transition'
-import LatestNews from '../Components/LatestNews'
-import Newsletter from '../Components/Newsletter'
-import MainHeader from '../Components/MainHeader'
-import BakedGoods from '../Components/BakedGoods'
+import LatestNews from '../Components/Partials/LatestNews'
+import Newsletter from '../Components/Partials/Newsletter'
+import MainHeader from '../Components/Partials/MainHeader'
+import BakedGoods from '../Components/Partials/BakedGoods'
 
 
 const Home = () => {

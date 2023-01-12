@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import Section_Styled from './Layout/Section_Styled'
-import AppService from './Appservices/Appservice'
-import { Header } from '../Styles/HeaderStyle'
+import Section_Styled from '../../Styles/Section_Styled'
+import AppService from '../Appservices/Appservice'
+import { Header } from '../../Styles/HeaderStyle'
 
 const BakedGoods = () => {
 const [goods, setGoods] = useState([])

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import AppService from './Appservices/Appservice'
+import AppService from '../../Components/Appservices/Appservice'
 import {Link, Route, Routes, useParams } from 'react-router-dom'
 import {AiOutlineComment} from 'react-icons/ai'
 import styled from 'styled-components'
@@ -8,7 +8,7 @@ const Products = styled.article`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-    margin: 1em auto;
+    margin: auto;
     width: 50%;
 
     figure {

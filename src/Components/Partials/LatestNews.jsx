@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Header } from '../Styles/HeaderStyle'
-import AppService from './Appservices/Appservice'
-import Section_Styled from './Layout/Section_Styled'
+import { Header } from '../../Styles/HeaderStyle'
+import AppService from '../Appservices/Appservice'
+import Section_Styled from '../../Styles/Section_Styled'
 
 const LatestNews = () => {
 
@@ -37,7 +37,7 @@ const LatestNews = () => {
        <figure key={i}>
         <img src={item.image}/>
         <figcaption>
-            <h5>{item.title}</h5>
+            <h5>{item.title.substring(0, 30)}...</h5>
             <p>{item.teaser.substring(0, 80)}...</p>
         </figcaption>
        </figure>

@@ -1,27 +1,31 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import useFlashMessageStore from "../../Components/FlashMessages/useFlashMessageStore";
 import Transitions from '../../Styles/Transition'
-import { Form_Styled } from '../Login/Login'
 import { Header } from '../../Styles/HeaderStyle';
 import { useModalStore } from "../../Components/Modal/useModalStore";
 
-const Contact_Page = styled.section`
-article {
-  display: flex;
-  width: 60%;
-  justify-content: space-between;
-  margin: auto;
-  padding: 3em;
+export const Page = styled.section`
+width: 80%;
+min-height: 80vh;
+margin: 3em auto 0 auto;
+display: flex;
+flex-direction: column;
+padding-top: 8em;
 
+article {
+width: 80%;
+margin: 3em auto;
+display: flex;
+justify-content: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 40%;
-    margin-right: 2em;
+    margin: 0 auto;
     input, textarea {
+      width: 100%;
       padding: .5em;
       margin: .5em 0;
     }
@@ -52,13 +56,18 @@ form {
 
 
 @media screen and (max-width: 768px) {
+  padding-top: 5em;
+ 
     article {
     flex-direction: column;  
     width: 90%;
-    padding: 2em 0;
+    padding: 0;
     }
     form {
       width: 100%;
+      button {
+        margin: 0 auto;
+      }
     }
     .mapouter {
       width: 100%;
@@ -69,7 +78,6 @@ form {
 
 const Contact = () => {
   const { setModalPayload, setToggleModal } = useModalStore();
-
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -93,20 +101,18 @@ const Contact = () => {
       <h5>Vi vender hurtigst muligt tilbage!</h5>
       <button onClick={() => setToggleModal("none")}>Ok</button>
     </div>
-    );
-    console.log(user)
+    )
     e.target.reset();
   };
 
   return (
     <Transitions>
-    <Contact_Page>
+    <Page>
       <Header>
       <h2>Kontakt os</h2> 
       <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem odit tenetur provident harum at corrupti minus? Maiores pariatur tempore autem!</h4>  
       </Header>
- <article> 
-
+  <article> 
   <form onSubmit={sendEmail}>
 <input type="text" placeholder='Dit navn:' onChange={(e) => handleChange(e)} name="name" required />
 <input type="email" placeholder='Din email:' onChange={(e) => handleChange(e)} name="email" required />
@@ -125,8 +131,8 @@ const Contact = () => {
 </div>
 
 </article> 
-    </Contact_Page>
-    </Transitions>
+</Page>
+</Transitions>
   )
 }
 

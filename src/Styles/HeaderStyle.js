@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-        width: 50%;
-        margin:auto;
+        width: 100%;
+        margin: 0 auto;
         color: black; 
-        padding: 5em 0;
+        padding: 0;
 
         h2 {
-            margin: 1em auto;
+            margin-bottom: .4em;
             font-size: 2.5em;
         }
 
@@ -15,13 +15,20 @@ export const Header = styled.header`
         font-size: 1em;
         padding: 0 1em;
         font-weight: 100;
+        width: 50%;
+        margin: 0 auto;
     }
 
     @media screen and (max-width: 768px) {
     width: 100%;
+    padding: 0;
 
     h2 {
         padding: 0;
+    }
+
+    h4 {
+        width: 100%;
     }
     }
     `

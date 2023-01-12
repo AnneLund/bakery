@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import AppService from '../Appservices/Appservice';
+import AppService from '../../Appservices/Appservice';
 import styled from 'styled-components';
-import { useLoginStore } from '../../Pages/Login/useLoginStore';
+import { useLoginStore } from '../../../Pages/Login/useLoginStore';
 import { useParams } from 'react-router-dom';
-import profile from '../../Assets/Images/placeholderpic.png'
+import profile from '../../../Assets/Images/placeholderpic.png'
 
 const Comments_Styled = styled.div`
 width: 100%;

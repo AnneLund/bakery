@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import AppService from './Appservices/Appservice';
+import AppService from '../../Components/Appservices/Appservice';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import {FcLike} from 'react-icons/fc'
-import Post from '../Pages/Post';
+import Post from '../../Components/Partials/Post';
 import {AiOutlineComment} from 'react-icons/ai'
-import { useLoginStore } from "../Pages/Login/useLoginStore";
-import Transitions from '../Styles/Transition';
+import { useLoginStore } from "../Login/useLoginStore";
+import Transitions from '../../Styles/Transition';
 
 const Product_Page = styled.section`
-position: relative;
-padding: 2em;
-width: 65%;
-min-height: 60vh;
-margin: auto;
+width: 80%;
+min-height: 80vh;
+margin: 3em auto 0 auto;
+display: flex;
+flex-direction: column;
+padding-top: 8em;
 header {
     text-align: left;
     display: flex;
@@ -28,6 +29,11 @@ header {
     }
 }
 
+div {
+    display: flex;
+    justify-content: space-between;
+}
+
 button {
     padding: .5em 1.5em;
     display: flex;
@@ -36,6 +42,23 @@ button {
     span {
         padding: 0 .5em;
     }
+}
+
+ul {
+    width: 50%;
+
+li {
+    list-style: none;
+    border: #8080809c 1px solid;
+    margin: .2em;
+    padding: 1em 2em;
+}
+
+h3 {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
 }
 
 @media screen and (max-width: 768px) {
@@ -52,42 +75,33 @@ button {
     padding: 1em;
     text-align: center;
     }
+
+    ul {
+    position: static;
+    margin: 1em auto 0;    
+    } 
 }
 `
 
 const Product = styled.figure`
-width: 70%;
 padding: 0 1em;
+margin: 0 4em 0 0 ;
+display: flex;
+width: 70%;
 
-figcaption {
-    line-height: 2.5em;
-    text-align: start;
+p {
+    line-height: 2.4em;
+    text-align: left;
 }
 
 img {
-    width: 50%;
-    margin: 1em 2em 0 0;
+   width: 50%;
+   margin: 0 0.8em 0.1em 0;
+   padding-top: 1em;
     float: left;
 }
 
-ul {
-position: absolute;
-right: 0;
-top: 15vh;
 
-li {
-    list-style: none;
-    border: #8080809c 1px solid;
-    margin: .2em;
-    padding: 1em 2em;
-}
-
-h3 {
-    text-align: left;
-    margin-bottom: 1em;
-}
-
-}
 @media screen and (max-width: 768px) {
     width: 100%;
     display: flex;
@@ -98,17 +112,14 @@ h3 {
         margin-bottom: 1em;
     }
 
-    ul {
-    position: static;
-    margin: 1em auto 0;    
-    } 
 }
 `
 
 const Comments = styled.article`
-    margin-top: 5em;
+    margin: 5em auto 0 auto;
     display: flex;
     flex-direction: column;
+    width: 80%;
     
     header{
         border: grey 1px solid;
@@ -165,29 +176,27 @@ useEffect(() => {
     <Transitions>
     <Product_Page>
 {product ? 
-
 <>
 <header>
 <h1>{product.title}</h1> 
 <button>Like! <span><FcLike size={15}/></span></button>           
 </header>
 
+<div>
 <Product>
-<img src={product.image.fullpath} alt={product.title}/>
-<figcaption>
-<p>{product.description}</p>  
-</figcaption>
-
+<p><img src={product.image.fullpath} alt={product.title}/>{product.description}</p>  
+</Product> 
 <ul>
    <h3>Ingredienser</h3> 
    {product.ingredients.map((ing, i) => (
     <li key={i}>{ing.amount} {ing.unit_name} {ing.ingredient_title}</li>
    ))}
 </ul>
-
-</Product> 
+</div>
 </>
 : null}
+
+    </Product_Page>
 
 <Comments>
         <header>
@@ -199,7 +208,7 @@ useEffect(() => {
         </header>
 <Post/>
 </Comments>
-    </Product_Page>
+
     </Transitions>
   )
 }

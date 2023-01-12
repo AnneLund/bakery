@@ -118,14 +118,14 @@ const Header = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
       <li>
-        <MenuLink to="/">Forside</MenuLink>
+        <MenuLink onClick={() => setIsOpen(!isOpen)} to="/">Forside</MenuLink>
       </li>
       <li>
-        <MenuLink to="/productsbycategory">Produkter</MenuLink>
+        <MenuLink onClick={() => setIsOpen(!isOpen)} to="/productsbycategory">Produkter</MenuLink>
       </li>
       <h2>bageriet</h2>
       <li>
-        <MenuLink to="/contact">Kontakt</MenuLink>
+        <MenuLink onClick={() => setIsOpen(!isOpen)} to="/contact">Kontakt</MenuLink>
       </li>
       {loggedIn ? 
     
@@ -136,7 +136,7 @@ const Header = () => {
       <MenuLink>Log ud</MenuLink>
       </li>   
         : 
-        <li> <MenuLink to="/login">Log ind</MenuLink> </li>}
+        <li> <MenuLink onClick={() => setIsOpen(!isOpen)} to="/login">Log ind</MenuLink> </li>}
       </Menu>
     </MainNav>
   );

@@ -3,11 +3,10 @@ import styled from "styled-components";
 const Section_Styled = styled.section`
 position: relative;
 width: 80%;
-min-height: 80vh;
-margin: auto;
+min-height: 70vh;
+margin: 3em auto 0 auto;
 display: flex;
 justify-content: center;
-align-items: center;
 
 .figures{
     display: flex;
@@ -15,14 +14,14 @@ align-items: center;
     flex-wrap: wrap;
     width: 100%;
     padding: 0 8em;
-    margin: 3em 0;
+    margin: 3em 0 0 0;
  
 
 @media screen and (max-width: 768px) {
 display: flex;
 flex-direction: column;
 padding: 0;
-margin: 0;
+margin: 2em 0;
 gap: 2em;
 justify-content: center;
 }   

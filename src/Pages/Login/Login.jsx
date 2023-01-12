@@ -1,11 +1,11 @@
 import { useState } from "react";
-import {Page} from "../../Components/Layout/Page";
 import { useLoginStore } from "./useLoginStore";
 import useFlashMessageStore from '../../Components/FlashMessages/useFlashMessageStore'
 import styled from "styled-components";
 import Transitions from "../../Styles/Transition";
 import { useNavigate } from "react-router-dom";
-import Section_Styled from "../../Components/Layout/Section_Styled";
+import { Header } from "../../Styles/HeaderStyle";
+import { Page } from "../Contact/Contact";
 
 export const Form_Styled = styled.form`
   display: flex;
@@ -58,7 +58,6 @@ const Login = () => {
           setFlashMessage("Velkommen");
           data.user.user_id = data.user_id
           setLoggedIn(true, data.user, data.username, data.access_token);
-          navigate('/')
         } else {
           setFlashMessage("Ingen brugere med disse kriterier");
         }
@@ -70,28 +69,23 @@ const Login = () => {
 
   return !loggedIn ? (
     <Transitions>
-    <Section_Styled>
-<article>
-       <h2>Log ind</h2>
-    
+    <Page>
+
+  <Header>
+    <h2>Log ind</h2>
+  </Header>
+       
     <Form_Styled onSubmit={LogMeIn}>
       <input type="text" name="username" onChange={(e) => handleChange(e)} />
       <input type="password" name="password" onChange={(e) => handleChange(e)} />
       <button>Log ind</button>
     </Form_Styled>  
-</article>
 
-    </Section_Styled>
+    </Page>
     </Transitions>
   ) : 
    
-    <Transitions>
-    <Page>
-      <h2>Velkommen</h2> 
-      <button onClick={() => setLoggedIn(false, "", "", "")}>Log ud</button>
-    </Page>
-    </Transitions>
-  ;
+  navigate('/')
 };
 
 export default Login;
