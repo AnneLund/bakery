@@ -29,17 +29,6 @@ form {
       padding: .5em;
       margin: .5em 0;
     }
-
-    button {
-      width: 50%;
-      margin-left: auto;
-      background-color: #3745619a;
-      padding: 0.5em;
-    font-family: sans-serif;
-    letter-spacing: .2em;
-    color: white;
-     
-    }
   }
 .mapouter{
   position:relative;

@@ -5,14 +5,15 @@ export const Flashmessage = styled.span`
     display: block;
     position: fixed;
     z-index: 1200;
-    background-color: #DAC8BA;
+    background-color: #15568495;
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
     animation: floatingAlert ease-in ${(props) => props.flashDuration}ms forwards;
     animation-fill-mode: forwards;
     padding: 10px 30px;
-    border: solid 1px #333;
+    color: white;
+    border: solid 1px white;
     border-radius: 5px;
     font-weight: 900;
     text-transform: uppercase;

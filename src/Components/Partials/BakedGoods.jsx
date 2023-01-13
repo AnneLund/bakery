@@ -19,7 +19,6 @@ useEffect(() => {
             console.error(error)
         }
     }
-
     fetchGoods()
 }, [])
 

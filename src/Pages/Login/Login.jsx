@@ -16,6 +16,17 @@ export const Form_Styled = styled.form`
     width: 60%;
     margin: 0 auto;
   }
+
+  button {
+    border: none;
+    background-color: #15568495;
+    cursor: pointer;
+    &:hover {
+      background-color: #155684;
+    }
+  }
+
+ 
 `
 
 const Login = () => {

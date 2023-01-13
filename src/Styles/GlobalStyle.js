@@ -26,6 +26,18 @@ const GlobalStyle = createGlobalStyle`
 a:active {
           font-weight: bold;
         }
+
+button {
+    border: none;
+    background-color: #15568495;
+    color: white;
+    padding: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    &:hover {
+      background-color: #155684;
+    }
+  }
 `;
 
 export default GlobalStyle;

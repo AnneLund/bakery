@@ -14,10 +14,12 @@ const Products = styled.article`
     figure {
         margin: 1em auto;
         width: 300px;
+
         img {
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
         }
 
         .goods {
@@ -69,7 +71,7 @@ const ProductsByCategory = () => {
             try {
                 const response = await AppService.GetList("categories/" + id)
                     if (response.data) {
-                       
+                    
                     setCategories(response.data.item.products)
                     }
             } catch (error) {

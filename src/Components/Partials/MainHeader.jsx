@@ -6,7 +6,6 @@ import img1 from '../../Assets/Images/slide1.jpg'
 import img2 from '../../Assets/Images/slide2.jpg'
 import img3 from '../../Assets/Images/slide3.jpg'
 
-
 const MyMainHeader = styled.header`
   color: white;
   width: 100%;
@@ -34,23 +33,27 @@ const MyMainHeader = styled.header`
 
   .react-slideshow-container {
    button {
-    background-color: inherit;
     margin: 1em;
+    background-color: inherit;
     svg {
-     fill: #ffffff6c;  
+     fill: #ffffffa7; 
+     width: 100%;
+     position: absolute;
     }
    
   }   
   }
 
   @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+    
     .h_container {
       h1 {
       font-size: 7vw;
     }  
     }
-  
-  }
+
 `
 
 const MainHeader = () => {

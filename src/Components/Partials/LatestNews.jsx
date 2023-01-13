@@ -9,18 +9,15 @@ const LatestNews = () => {
 
     useEffect(() => {
         const fetchNews = async () => {
-          
             try {
                 const response = await AppService.GetList("news")
                     if (response.data) {
-                
                     setNews(response.data.items.slice(0, 3))
                     }
             } catch (error) {
                 console.error(error)
             }
         }
-
         fetchNews()
     }, [])
 

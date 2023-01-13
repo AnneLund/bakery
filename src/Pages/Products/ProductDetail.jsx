@@ -6,6 +6,7 @@ import {FcLike} from 'react-icons/fc'
 import Post from '../../Components/Partials/Post';
 import {AiOutlineComment} from 'react-icons/ai'
 import { useLoginStore } from "../Login/useLoginStore";
+import useFlashMessageStore from '../../Components/FlashMessages/useFlashMessageStore'
 import Transitions from '../../Styles/Transition';
 
 const Product_Page = styled.section`
@@ -176,6 +177,7 @@ const ProductDetail = () => {
 const {id} = useParams()
 const [product, setProduct] = useState("")
 const { loggedIn} = useLoginStore();
+const { setFlashMessage } = useFlashMessageStore();
 
 useEffect(() => {
     const fetchProduct = async () => {
@@ -200,7 +202,7 @@ useEffect(() => {
 <>
 <header>
 <h1>{product.title}</h1> 
-<button>Like! <span><FcLike size={15}/></span></button>           
+<button onClick={() => setFlashMessage(<FcLike size={50}/>)}>Like! <span><FcLike size={15}/></span></button>           
 </header>
 
 <div>

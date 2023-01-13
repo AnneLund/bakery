@@ -74,8 +74,8 @@ const Products = () => {
 const {state: categories} = useGetListItemsByEndPoint('categories', "items");
 
   return (
-    <Transitions>
-<Page>
+<Transitions>
+  <Page>
   <article>
   <header>
       <h2> Vores elskede bagværk</h2>
@@ -85,7 +85,6 @@ const {state: categories} = useGetListItemsByEndPoint('categories', "items");
     <Breadcrumbs/> 
         <Sidebar>
          <ul>
-        
         {categories?.map(cat => {
           return(
             <li key={cat.id}>
@@ -93,7 +92,6 @@ const {state: categories} = useGetListItemsByEndPoint('categories', "items");
             </li>
           )
         })}
-       
           </ul>
         </Sidebar>    
 <Outlet/>
